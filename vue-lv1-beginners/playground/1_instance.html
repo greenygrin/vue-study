@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>인스턴스</title>
+</head>
+<body>
+    <div id="app"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // 인스턴스
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'hi'
+            },
+            methods: {
+
+            },
+            created: function() {
+
+            }
+        });
+
+
+        // 생성자 함수
+        // 자바스크립트에서 함수를 이용하여 인스턴스를 생성할 때 사용
+        // 암묵적으로 첫 글자 대문자 사용 = 생성자 함수
+        function Person(name, job) {
+            this.name = name;
+            this.job = job;
+        }
+        var p = new Person('josh', 'developer');
+
+
+        function Vue() {
+            this.logText = function() {
+                console.log('hello');
+            }
+        }
+        var vm = new Vue();
+        vm.logText();
+    </script>
+</body>
+</html>

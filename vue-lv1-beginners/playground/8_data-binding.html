@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>템플릿 문법 (기본) - 데이터 바인딩, computed 속성 / 뷰 디렉티브(v-bind, v-if, v-show)</title>
+</head>
+<body>
+    <div id="app">
+        <p>{{ str }}</p>
+        <p v-bind:id="uuid" v-bind:class="name">{{ num }}</p>
+        <p>{{ doubleNum }}</p>
+        <div v-if="loading"><!-- if는 DOM을 아예 제거 -->
+            Loading...
+        </div>
+        <div v-else>
+            test user has been logged in
+        </div>
+        <div v-show="loading"><!-- show는 style="display: none;" 으로만 처리하고 DOM에 정보는 남아있음 -->
+            Loading...
+        </div>
+        <br />
+        <!-- TODO: 인풋 박스를 만들고 입력된 값을 p 태그에 출력해보세요 -->
+        <input v-model="message" placeholder="edit me">
+        <p>Message is: {{ message }}</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                str: 'hi',
+                num: 10,
+                // doubleNum: 10 * 2,
+                uuid: 'abc1234',
+                name: 'text-blue',
+                loading: true,
+                message: ''
+            },
+            computed: {
+                doubleNum: function() {
+                    return this.num * 2;
+                }
+            }
+        });
+    </script>
+</body>
+</html>
